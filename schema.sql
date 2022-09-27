@@ -1,3 +1,4 @@
+-- day 1
 CREATE TABLE animals (
     id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     name VARCHAR(20),
