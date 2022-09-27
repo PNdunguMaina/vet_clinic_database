@@ -7,3 +7,7 @@ CREATE TABLE animals (
     neutered bool,
     weight_kg DECIMAL
 );
+
+-- day 2
+ ALTER TABLE animals
+ ADD species CHAR;
