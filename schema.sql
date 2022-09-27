@@ -1,8 +1,8 @@
 CREATE TABLE animals (
-    id int not null,
-    name char not null,
+    id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    name VARCHAR(20),
     date_of_birth date,
-    escape_attempts int,
-    neutered bit,
-    weight_kg decimal
+    escape_attempts INT,
+    neutered bool,
+    weight_kg DECIMAL
 );
