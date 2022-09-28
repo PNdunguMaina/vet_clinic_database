@@ -26,3 +26,15 @@ PRIMARY KEY(id));
 id INT GENERATED ALWAYS AS IDENTITY,
 name VARCHAR(25),
 PRIMARY KEY(id));
+
+-- modify animals table
+ALTER TABLE animals
+DROP COLUMN species; -- remove species column
+
+ALTER TABLE animals
+ADD species_id INT
+REFERENCES species(id); -- add species_id as f_key
+
+ALTER TABLE animals
+ADD owner_id INT
+REFERENCES owners(id);  -- add owner_id as f_key
