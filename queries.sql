@@ -14,18 +14,23 @@ BEGIN TRANSACTION;
 ALTER TABLE animals
 RENAME COLUMN species
 TO unspecified;
+SELECT * FROM animals;
 ROLLBACK TRANSACTION;
+SELECT * FROM animals;
 
 -- Write species name with a condition inside a  transaction
 BEGIN WORK;
 UPDATE animals SET species='Digimon' WHERE name Like'%mon%';
 UPDATE animals SET species='Pokemon' WHERE species IS NULL;
 COMMIT WORK;
+SELECT * FROM animals;
 
 -- delete data and revert
 BEGIN;
 DELETE FROM animals;
+SELECT * FROM animals;
 ROLLBACK;
+SELECT * FROM animals;
 
 -- creating savepoints
 BEGIN TRANSACTION;
@@ -35,6 +40,7 @@ UPDATE animals SET weight_kg=weight_kg*-1;
 ROLLBACK TO SP1;
 UPDATE animals SET weight_kg=weight_kg*-1 WHERE weight_kg<0;
 COMMIT TRANSACTION;
+SELECT * FROM animals;
 
 -- complex queries that answer analytical questions
 SELECT COUNT(*) FROM animals;
