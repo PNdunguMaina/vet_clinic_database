@@ -10,4 +10,4 @@ CREATE TABLE animals (
 
 -- day 2
  ALTER TABLE animals
- ADD species CHAR;
+ ADD species CHAR(50);
