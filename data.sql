@@ -12,3 +12,42 @@ INSERT INTO animals(name, date_of_birth,escape_attempts,neutered,weight_kg) VALU
 INSERT INTO animals(name, date_of_birth,escape_attempts,neutered,weight_kg) VALUES('Boarmon',DATE '2005-07-07',7,true,20.4);
 INSERT INTO animals(name, date_of_birth,escape_attempts,neutered,weight_kg) VALUES('Blossom',DATE '1998-10-13',3,true,17);
 INSERT INTO animals(name, date_of_birth,escape_attempts,neutered,weight_kg) VALUES('Ditto',DATE '2022-05-14',4,true,22);
+
+-- day 3
+
+-- insert data to owners table
+INSERT INTO owners (full_name, age) VALUES('Sam Smith', 34);
+INSERT INTO owners (full_name, age) VALUES('Jennifer Orwell', 19);
+INSERT INTO owners (full_name, age) VALUES('Bob', 45);
+INSERT INTO owners (full_name, age) VALUES('Melody Pond', 77);
+INSERT INTO owners (full_name, age) VALUES('Dean Winchester', 14);
+INSERT INTO owners (full_name, age) VALUES('Jodie Whittaker', 38);
+
+-- insert data to species table
+INSERT INTO species (name) VALUES('Pokemon'), ('Digimon');
+
+-- modify animals table to include species_id
+ALTER TABLE animals
+ADD CONSTRAINT fk_species
+FOREIGN KEY(species_id)
+REFERENCES species(id);
+-- match right species id to correct name
+UPDATE animals SET species_id=2 WHERE name LIKE '%mon%';
+UPDATE animals SET species_id=1 WHERE species_id IS NULL;
+
+ -- modify animals table to include owner_id
+ALTER TABLE animals
+ADD CONSTRAINT fk_owner
+FOREIGN KEY(owner_id)
+REFERENCES owners(id);
+-- match right owner id to correct animal
+UPDATE animals SET owner_id=1 WHERE name = 'Agumon';
+UPDATE animals SET owner_id=2 WHERE name = 'Gabumon';
+UPDATE animals SET owner_id=2 WHERE name = 'Pikachu';
+UPDATE animals SET owner_id=3 WHERE name = 'Devimon';
+UPDATE animals SET owner_id=3 WHERE name = 'Plantmon';
+UPDATE animals SET owner_id=4 WHERE name = 'Charmander';
+UPDATE animals SET owner_id=4 WHERE name = 'Squirtle';
+UPDATE animals SET owner_id=4 WHERE name = 'Blossom';
+UPDATE animals SET owner_id=5 WHERE name = 'Angemon';
+UPDATE animals SET owner_id=5 WHERE name = 'Boarmon';
