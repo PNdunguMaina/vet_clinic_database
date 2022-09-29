@@ -50,12 +50,16 @@ PRIMARY KEY (id)); -- create table 'vets'
 CREATE TABLE specializations(
 species_id INT,
 vets_id INT,
-PRIMARY KEY(species_id,vets_id)
+PRIMARY KEY(species_id,vets_id),
+FOREIGN KEY (species_id) REFERENCES species (id),
+FOREIGN KEY (vetss_id) REFERENCES vets (id)
 ); -- create 'join table' specializations between species & vets
 
 CREATE TABLE visits(
 animal_id INT,
 vets_id INT,
 date_of_visit DATE,
-PRIMARY KEY(animal_id,vets_id)
+PRIMARY KEY(animal_id,vets_id,date_of_visit),
+FOREIGN KEY (animal_id) REFERENCES animals(id),
+FOREIGN KEY (vets_id) REFERENCES vets(id)
 ); -- create 'join table' visits between animals & vets
