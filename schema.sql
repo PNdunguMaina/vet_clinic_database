@@ -38,3 +38,24 @@ REFERENCES species(id); -- add species_id as f_key
 ALTER TABLE animals
 ADD owner_id INT
 REFERENCES owners(id);  -- add owner_id as f_key
+
+-- day 4
+CREATE TABLE vets(
+id INT GENERATED ALWAYS AS IDENTITY,
+name VARCHAR(50),
+age INT,
+date_of_graduation DATE,
+PRIMARY KEY (id)); -- create table 'vets'
+
+CREATE TABLE specializations(
+species_id INT,
+vets_id INT,
+PRIMARY KEY(species_id,vets_id)
+); -- create 'join table' specializations between species & vets
+
+CREATE TABLE visits(
+animal_id INT,
+vets_id INT,
+date_of_visit DATE,
+PRIMARY KEY(animal_id,vets_id)
+); -- create 'join table' visits between animals & vets
