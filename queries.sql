@@ -109,3 +109,21 @@ JOIN visits vt ON v.id = vt.vets_id
 JOIN animals a ON vt.animal_id = a.id
 JOIN species sp ON sp.id = a.species_id
 WHERE v.name = 'Maisy Smith' GROUP BY species LIMIT 1; --specialty Maisy Smith should consider getting
+
+-- day 5
+-- check execution time
+explain analyze SELECT COUNT(*) FROM visits where animal_id = 4;
+
+SELECT COUNT(*) FROM visits where animal_id = 4;
+SELECT * FROM visits where vets_id = 2;
+SELECT * FROM owners where email = 'owner_18327@mail.com';
+
+-- Indexing
+explain analyze SELECT COUNT(*) FROM visits where animal_id = 4; -- Explain analyze query for visits where pet_id = 4
+CREATE INDEX visits_asc ON visits(animal_id ASC); 
+
+explain analyze SELECT * FROM visits where vets_id = 2; -- Explain analyze query for visits where vet_id = 2
+CREATE INDEX visits_vet_desc ON visits(vets_id DESC); 
+
+explain analyze SELECT * FROM owners where email = 'owner_18327@mail.com'; -- Explain analyze query for owners where email = 'owner_18327@mail.com'
+CREATE INDEX owners_email_asc ON owners(email ASC);
