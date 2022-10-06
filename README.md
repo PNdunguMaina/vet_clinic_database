@@ -11,6 +11,8 @@ This repository includes files with plain SQL that can be used to recreate a dat
 - Check [queries.sql](./queries.sql) for examples of queries that can be run on a newly created database. **Important note: this file might include queries that make changes in the database (e.g., remove records). Use them responsibly!**
 
 
+## Live Demo
+Click [here](https://lucid.app/lucidchart/0ef2a75e-525f-496e-9368-5c8769d1aedd/edit?viewport_loc=414%2C-93%2C3352%2C1404%2C0_0&invitationId=inv_2b229484-e9c4-425d-8c3f-6e247f714e5b#) to view the ER Diagram.
 ## Author
 
 👤 **Patrick Maina**
